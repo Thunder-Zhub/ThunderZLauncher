@@ -1,0 +1,516 @@
+/* ============================================
+   ThunderZ Launcher — landing page
+   Palette: slate/bedrock base, glowstone-gold accent, storm-blue secondary
+   ============================================ */
+
+:root {
+  --bg: #1B1F23;
+  --bg-panel: #22272C;
+  --bg-panel-raised: #282E34;
+  --border: #363D45;
+  --border-soft: #2C333A;
+
+  --text: #E8E6E1;
+  --text-dim: #8B9199;
+  --text-faint: #5F666E;
+
+  --gold: #F5C842;
+  --gold-dim: #C9A23A;
+  --storm: #7DD3FC;
+
+  --font-display: "Press Start 2P", monospace;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --radius-sm: 3px;
+  --radius-md: 4px;
+  --maxw: 1120px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+img, svg { display: block; max-width: 100%; }
+
+/* ---------- Focus ---------- */
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* ---------- Topbar ---------- */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(27, 31, 35, 0.88);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 0.01em;
+}
+
+.brand-mark {
+  color: var(--gold);
+  font-size: 1.2rem;
+}
+
+.topnav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.topnav a:not(.nav-cta) {
+  color: var(--text-dim);
+  transition: color 0.15s ease;
+}
+
+.topnav a:not(.nav-cta):hover {
+  color: var(--text);
+}
+
+.nav-cta {
+  background: var(--gold);
+  color: #1B1F23;
+  padding: 9px 18px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: #1B1F23;
+}
+
+.btn-primary:hover {
+  background: #FFD65C;
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.btn-ghost:hover {
+  border-color: var(--text-dim);
+}
+
+.btn-large {
+  padding: 18px 40px;
+  font-size: 1.05rem;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  padding: 88px 0 64px;
+  border-bottom: 1px solid var(--border-soft);
+  overflow: hidden;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.kicker {
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin: 0 0 18px;
+}
+
+.hero h1 {
+  font-size: clamp(2.1rem, 4vw, 3.1rem);
+  line-height: 1.16;
+  margin: 0 0 22px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.bolt-underline {
+  display: inline-block;
+  position: relative;
+}
+
+.bolt-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+.hero-desc {
+  color: var(--text-dim);
+  font-size: 1.05rem;
+  max-width: 46ch;
+  margin: 0 0 32px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.hero-meta {
+  color: var(--text-faint);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bolt-art {
+  width: 100%;
+  max-width: 320px;
+  filter: drop-shadow(0 0 60px rgba(245, 200, 66, 0.25));
+}
+
+.bolt-art-small {
+  max-width: 120px;
+  margin: 0 auto 28px;
+}
+
+/* ---------- Strip (stats) ---------- */
+
+.strip {
+  border-bottom: 1px solid var(--border-soft);
+  background: var(--bg-panel);
+}
+
+.strip-inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+.download-buttons {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.strip-item {
+  padding: 36px 24px;
+  text-align: center;
+  border-right: 1px solid var(--border-soft);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.strip-item:last-child {
+  border-right: none;
+}
+
+.strip-num {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--gold);
+}
+
+.strip-label {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+/* ---------- Section title ---------- */
+
+.section-title {
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 800;
+  margin: 0 0 40px;
+  letter-spacing: -0.01em;
+}
+
+/* ---------- Features (block grid) ---------- */
+
+.features {
+  padding: 88px 0;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.block-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border-soft);
+  border: 1px solid var(--border-soft);
+}
+
+.block {
+  background: var(--bg-panel);
+  padding: 32px 28px;
+}
+
+.block-icon {
+  font-size: 1.6rem;
+  margin-bottom: 16px;
+}
+
+.block h3 {
+  font-size: 1.05rem;
+  margin: 0 0 10px;
+  font-weight: 700;
+}
+
+.block p {
+  color: var(--text-dim);
+  font-size: 0.92rem;
+  margin: 0;
+  line-height: 1.65;
+}
+
+/* ---------- How it works (steps) ---------- */
+
+.how {
+  padding: 88px 0;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 640px;
+}
+
+.step {
+  display: flex;
+  gap: 24px;
+  padding: 28px 0;
+  border-top: 1px solid var(--border-soft);
+}
+
+.step:last-child {
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.step-index {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  color: var(--gold-dim);
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.step h3 {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.step p {
+  margin: 0;
+  color: var(--text-dim);
+  font-size: 0.92rem;
+  max-width: 55ch;
+}
+
+/* ---------- Download ---------- */
+
+.download {
+  padding: 96px 0;
+  text-align: center;
+}
+
+.download-inner {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.download h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  margin: 0 0 14px;
+}
+
+.download p {
+  color: var(--text-dim);
+  margin: 0 0 32px;
+}
+
+.download-note {
+  margin-top: 16px;
+  font-size: 0.82rem;
+  color: var(--text-faint);
+}
+
+[data-download-placeholder] {
+  opacity: 0.92;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  border-top: 1px solid var(--border-soft);
+  padding: 40px 0;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.brand-footer {
+  flex-shrink: 0;
+}
+
+.site-footer p {
+  color: var(--text-faint);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 860px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-visual {
+    order: -1;
+  }
+
+  .bolt-art {
+    max-width: 200px;
+  }
+
+  .strip-inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .strip-item:nth-child(2) {
+    border-right: none;
+  }
+
+  .strip-item {
+    border-right: none;
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .strip-item:last-child {
+    border-bottom: none;
+  }
+
+  .block-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .topnav {
+    gap: 16px;
+  }
+
+  .topnav a:not(.nav-cta) {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .wrap {
+    padding: 0 20px;
+  }
+
+  .hero {
+    padding: 56px 0 40px;
+  }
+
+  .hero-actions,
+  .download-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn {
+    text-align: center;
+  }
+}
